@@ -1,0 +1,101 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life Insurance Quote</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #a8edea, #fed6e3);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .form-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 40px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    .form-title {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #e91e63;
+    }
+    .btn-primary {
+      background: linear-gradient(to right, #ff6a00, #ee0979);
+      border: none;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(to right, #ee0979, #ff6a00);
+    }
+  </style>
+</head>
+<body>
+  <div class="container form-container">
+    <h2 class="form-title">Life Insurance Quote</h2>
+    <form id="quoteForm">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <input type="text" id="name" class="form-control" placeholder="Full Name" required>
+        </div>
+        <div class="col-md-6">
+          <input type="date" id="dob" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <select id="gender" class="form-select" required>
+            <option value="" disabled selected>Select Gender</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            <option value="O">Other</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <select id="smoker" class="form-select" required>
+            <option value="" disabled selected>Are you a smoker?</option>
+            <option value="Y">Smoker</option>
+            <option value="N">Non-Smoker</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <input type="tel" id="mobile" class="form-control" placeholder="Mobile Number" required>
+        </div>
+        <div class="col-md-6">
+          <input type="email" id="email" class="form-control" placeholder="Email" required>
+        </div>
+        <div class="col-md-6">
+          <input type="text" id="pincode" class="form-control" placeholder="Pincode" required>
+        </div>
+        <div class="col-md-6">
+          <input type="number" id="sumAssured" class="form-control" placeholder="Sum Assured" required>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary w-100">Submit & View Plans</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('quoteForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const formData = {
+        name: document.getElementById('name').value,
+        dob: document.getElementById('dob').value,
+        gender: document.getElementById('gender').value,
+        smoker: document.getElementById('smoker').value,
+        mobile: document.getElementById('mobile').value,
+        email: document.getElementById('email').value,
+        pincode: document.getElementById('pincode').value,
+        sumAssured: document.getElementById('sumAssured').value
+      };
+
+      localStorage.setItem('quoteInput', JSON.stringify(formData));
+      window.location.href = 'premium-result.html';
+    });
+  </script>
+</body>
+</html>
