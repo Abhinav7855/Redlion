@@ -1,15 +1,12 @@
-const express = require('express');
-const cors = require('cors');
-const fetch = require('node-fetch'); // ✅ node-fetch v2 supports require()
+// api/get-premium.js
+import fetch from 'node-fetch';
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Only POST method allowed' });
+  }
 
-app.post('/api/get-premium', async (req, res) => {
   try {
-    console.log("BODY:", req.body);
-
     const tokenRes = await fetch('https://serviceuat.nivabupa.com:82/connect/token', {
       method: 'POST',
       headers: {
@@ -26,9 +23,7 @@ app.post('/api/get-premium', async (req, res) => {
     const tokenData = await tokenRes.json();
     const accessToken = tokenData.access_token;
 
-    if (!accessToken) {
-      throw new Error("Access token not received");
-    }
+    if (!accessToken) throw new Error("Token not received");
 
     const premiumRes = await fetch('https://serviceuat.nivabupa.com:83/api/ReAssure2.0/GetPremium', {
       method: 'POST',
@@ -40,14 +35,8 @@ app.post('/api/get-premium', async (req, res) => {
     });
 
     const premiumData = await premiumRes.json();
-    console.log("PREMIUM RESPONSE:", premiumData);
-    res.json(premiumData);
-  } catch (err) {
-    console.error("💥 SERVER ERROR:", err);
-    res.status(500).json({ error: 'Internal server error', detail: err.message });
+    res.status(200).json(premiumData);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal error', detail: error.message });
   }
-});
-
-app.listen(3001, () => {
-  console.log('✅ Server running on http://localhost:3001');
-});
+}

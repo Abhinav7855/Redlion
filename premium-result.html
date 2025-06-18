@@ -30,11 +30,16 @@
           FullName: quoteData.name
         };
 
-        const res = await fetch('http://localhost:3001/api/get-premium', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
+        const res = await fetch('https://redlionimf.com/api/get-premium', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(payload)
+});
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
 
         const premiumData = await res.json();
 
