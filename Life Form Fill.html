@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>eTouch II - Bajaj Allianz</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    body { background-color: #f0f2f5; font-family: 'Segoe UI', sans-serif; }
+    .header { background-color: #0066b2; color: white; padding: 15px 30px; display: flex; align-items: center; }
+    .header img { height: 40px; margin-right: 15px; }
+    .form-card { background-color: #ffffff; border-radius: 10px; padding: 30px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+    .section-title { font-size: 1.4rem; font-weight: 600; color: #0066b2; margin-bottom: 20px; }
+    .form-label { font-weight: 500; color: #0066b2; }
+    .gender-btn { border: 1px solid #0066b2; border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 8px; cursor: pointer; transition: all 0.2s ease; background-color: #f8f9fa; }
+    .gender-btn:hover { background-color: #e2f0ff; border-color: #007bff; }
+    .gender-selected { background-color: #007bff !important; color: white !important; border-color: #007bff !important; }
+    .form-control, .form-select { border-radius: 6px; }
+    .form-section { margin-top: 30px; }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bajaj_Auto_logo.svg/2560px-Bajaj_Auto_logo.svg.png" alt="" />
+    <h4 class="mb-0">Financial Need Analysis</h4>
+  </div>
+
+  <div class="container my-4">
+    <form id="quoteForm" class="form-card">
+      
+      <!-- 1. Basic Details -->
+      <div class="section-title">1. Basic Details</div>
+      <div class="row g-4">
+        <div class="col-md-2">
+          <label class="form-label">First Name</label>
+          <input type="text" id="firstName" class="form-control" placeholder="First Name" />
+        </div>
+        <div class="col-md-2">
+          <label class="form-label">Middle Name</label>
+          <input type="text" id="middleName" class="form-control" placeholder="Middle Name" />
+        </div>
+        <div class="col-md-2">
+          <label class="form-label">Last Name</label>
+          <input type="text" id="lastName" class="form-control" placeholder="Last Name" />
+        </div>
+        <div class="col-md-4">
+          <label class="form-label d-block">Gender</label>
+          <input type="hidden" id="genderSelect" />
+          <div class="d-flex gap-4">
+            <div class="gender-btn" data-value="M"><i class="fas fa-male"></i> Male</div>
+            <div class="gender-btn" data-value="F"><i class="fas fa-female"></i> Female</div>
+            <div class="gender-btn" data-value="T"><i class="fas fa-transgender-alt"></i> Transgender</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Date of Birth</label>
+          <input type="date" id="dob" class="form-control" required />
+        </div>
+        <div class="col-md-2">
+          <label class="form-label">Age</label>
+          <input type="number" id="age" class="form-control" readonly />
+        </div>
+      </div>
+
+      <!-- Life Assured Details -->
+      <div class="form-section">
+        <h6 class="text-primary fw-bold mb-3">Life Assured Details</h6>
+        <div class="row g-3">
+          <div class="col-md-3">
+            <label class="form-label">Residence Status</label>
+            <select class="form-select" id="residenceStatus">
+              <option selected>-- Select --</option>
+              <option>Indian</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Pincode</label>
+            <input type="text" id="pincode" class="form-control" maxlength="6" required>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Proposer State</label>
+            <input type="text" id="state" class="form-control" readonly>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Sales Person's State</label>
+            <select id="salesPersonState" class="form-select">
+              <option selected>-- Select --</option>
+              <option>UP</option>
+              <option>Delhi</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Product Details -->
+      <div class="form-section">
+        <div class="section-title">2. Product Details</div>
+        <div class="row g-3">
+          <div class="col-md-3">
+            <label class="form-label">Policy Term</label>
+            <select id="stringval35" class="form-select">
+              <option>10</option><option>15</option><option>20</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Premium Paying Term</label>
+            <select id="stringval36" class="form-select">
+              <option>10</option><option>15</option><option>20</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Sum Assured</label>
+            <input type="number" id="sumAssured" class="form-control" />
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+
+    </form>
+  </div>
+
+<script>
+  // Gender selection
+  const genderBtns = document.querySelectorAll('.gender-btn');
+  genderBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      genderBtns.forEach(b => b.classList.remove('gender-selected'));
+      btn.classList.add('gender-selected');
+      document.getElementById("genderSelect").value = btn.dataset.value;
+    });
+  });
+
+  // DOB → Age
+  document.getElementById("dob").addEventListener("change", function () {
+    const dob = new Date(this.value);
+    const today = new Date();
+    let age = today.getFullYear() - dob.getFullYear();
+    const m = today.getMonth() - dob.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+      age--;
+    }
+    document.getElementById("age").value = age >= 0 ? age : '';
+  });
+
+  // Pincode → State autofill
+  document.getElementById('pincode').addEventListener('blur', function () {
+    const pincode = this.value;
+    if (pincode.length === 6) {
+      fetch(`https://api.postalpincode.in/pincode/${pincode}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data[0].Status === "Success") {
+            document.getElementById('state').value = data[0].PostOffice[0].State;
+          } else {
+            document.getElementById('state').value = "Invalid Pincode";
+          }
+        })
+        .catch(error => {
+          console.error("Error fetching state:", error);
+          document.getElementById('state').value = "Error";
+        });
+    } else {
+      document.getElementById('state').value = "";
+    }
+  });
+
+  // Form Submit + API Call
+  document.getElementById("quoteForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const firstName = document.getElementById("firstName").value.trim();
+    const dob = document.getElementById("dob").value;
+    const age = document.getElementById("age").value;
+    const gender = document.getElementById("genderSelect").value;
+    const sumAssured = document.getElementById("sumAssured").value;
+
+    if (!firstName || !dob || !age || !gender || !sumAssured) {
+      alert("Please fill all required fields.");
+      return;
+    }
+
+    const payload = {
+      "pInObj1_inout": {
+        "stringval1": "REDLION_IMFLLP_DG",
+        "stringval2": "PREMIUM_CALC",
+        "stringval3": "10.1.100.100",
+        "stringval4": "1900000142",
+        "stringval5": "P00MDGNB",
+        "stringval7": "",
+        "stringval8": "N",
+        "stringval9": "Y",
+        "stringval10": "259",
+        "stringval11": "I",
+        "stringval12": "MR",
+        "stringval13": firstName,
+        "stringval14": middleName,
+        "stringval15": lastName,
+        "stringval16": dob,
+        "stringval17": age,
+        "stringval18": gender,
+        "stringval19": "9766500199",
+        "stringval20": "ram@gmail.com",
+        "stringval21": "",
+        "stringval22": "",
+        "stringval23": "",
+        "stringval24": "",
+        "stringval25": "",
+        "stringval26": "",
+        "stringval27": "",
+        "stringval28": "",
+        "stringval29": "",
+        "stringval30": "Bajaj Allianz iSecure_V02",
+        "stringval31": "ISECUREV02",
+        "stringval32": "1",
+        "stringval34": "ENG",
+        "stringval35": "10",
+        "stringval36": "10",
+        "stringval37": "",
+        "stringval38": "",
+        "stringval39": "1",
+        "stringval40": "5000000",
+        "stringval130": "1000000",
+        "stringval129": "GR",
+        "stringval55": "411006",
+        "stringval131": "SG"
+    },
+    "pInObj4_inout": {
+        "stringval147": "REDLION_IMFLLP",
+        "stringval148": "I",
+        "stringval149": "I"
+    },
+    "pInList1_inout": {
+        "WeoRecStrings150User": [
+            {
+                "stringval1": "L145A01",
+                "stringval2": "5000000",
+                "stringval3": "10",
+                "stringval4": "10"
+            }
+        ]
+    }
+
+    };
+
+    fetch("https://balicws.bajajallianz.com/BalicWSRest/BalicWSRest", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    })
+    .then(res => res.json())
+    .then(data => {
+      const premium = data?.pInObj1_inout?.stringval120;
+      if (premium) {
+        alert("💰 Premium Amount: ₹" + premium);
+      } else {
+        alert("❌ No premium returned. Please check input values.");
+      }
+    })
+    .catch(err => {
+      console.error("API Error:", err);
+      alert("API call failed. Check console.");
+    });
+  });
+</script>
+
+</body>
+</html>

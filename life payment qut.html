@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life Insurance Quote</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .form-container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-title {
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container form-container">
+    <h2 class="form-title">Life Insurance</h2>
+    <form id="quoteForm">
+
+      <div class="mb-3">
+        <label for="fullName" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="fullName" placeholder="Enter your name" required />
+      </div>
+
+      <div class="mb-3">
+        <label for="age" class="form-label"><b>Age</b></label>
+        <input type="number" class="form-control" id="age" required />
+      </div>
+
+      <div class="mb-3">
+        <label for="gender" class="form-label">Gender</label>
+        <select class="form-select" id="gender" required>
+          <option selected disabled>Select your gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="smoker" class="form-label">Smoker/Non Smoker</label>
+        <select class="form-select" id="smoker" required>
+          <option selected disabled>Select an option</option>
+          <option>Smoker</option>
+          <option>Non Smoker</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="salaried" class="form-label">Salaried</label>
+        <select class="form-select" id="salaried" required>
+          <option selected disabled>Select an option</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="income" class="form-label">Annual Income</label>
+        <select class="form-select" id="income" required>
+          <option selected disabled>Select income range</option>
+          <option>0-3 lakhs</option>
+          <option>3-5 lakhs</option>
+          <option>5-7 lakhs</option>
+          <option>7-10 lakhs</option>
+          <option>10-15 lakhs</option>
+          <option>More than 15 lakhs</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="policyTerm" class="form-label">PT (Policy Term)</label>
+        <input type="number" class="form-control" id="policyTerm" required />
+      </div>
+
+      <div class="mb-3">
+        <label for="paymentTerm" class="form-label">PPT (Premium Payment Term)</label>
+        <input type="number" class="form-control" id="paymentTerm" placeholder="Enter payment term in years" required />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Customer Status</label>
+        <div class="d-flex justify-content-between">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="customerStatus" id="existingCustomer" value="existing" required />
+            <label class="form-check-label" for="existingCustomer">Existing Customer</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="customerStatus" id="firstTimeBuyer" value="firstTime" required />
+            <label class="form-check-label" for="firstTimeBuyer">First Time Buyer</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Residence Status*</label>
+        <input type="text" class="form-control" value="Resident Indian" readonly />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Variant*</label>
+        <input type="text" class="form-control" value="Life Shield" readonly />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Mode of Premium*</label>
+        <input type="text" class="form-control" value="Annual" readonly />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Life Benefit*</label>
+        <input type="text" class="form-control" value="Lumpsum" readonly />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Riders*</label>
+        <input type="text" class="form-control" value="No" readonly />
+      </div>
+
+      <div class="mb-3">
+        <label for="sumAssured" class="form-label">Sum Assured</label>
+        <input type="number" class="form-control" id="sumAssured" placeholder="Enter sum assured amount" required />
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">View Plans</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("quoteForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+ window.location.href = "./health policy.html"; 
+
+      const formData = {
+        name: document.getElementById("fullName").value,
+        age: document.getElementById("age").value,
+        gender: document.getElementById("gender").value.charAt(0),
+        smoker: document.getElementById("smoker").value === "Smoker" ? "Y" : "N",
+        salaried: document.getElementById("salaried").value,
+        income: document.getElementById("income").value,
+        term: document.getElementById("policyTerm").value,
+        paymentTerm: document.getElementById("paymentTerm").value,
+        customerStatus: document.querySelector('input[name="customerStatus"]:checked')?.value || "firstTime",
+        sumAssured: document.getElementById("sumAssured").value,
+        dob: "24/04/1990", // You can later make this dynamic if needed
+        email: "sumit@gmail.com", // You can later take email from user too
+        mobile: "9766500199" // Or take from input later
+      };
+
+      localStorage.setItem("quoteInput", JSON.stringify(formData));
+      window.location.href = "./life-payment2.html";
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

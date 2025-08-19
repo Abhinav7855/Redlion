@@ -1,0 +1,445 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>eTouch II - Bajaj Allianz</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f0f2f5;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .header {
+      background-color: #0066b2;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+    }
+    .header img {
+      height: 40px;
+      margin-right: 15px;
+    }
+    .form-card {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #0066b2;
+      margin-bottom: 20px;
+    }
+    .form-label {
+      font-weight: 500;
+      color: #0066b2;
+    }
+    .gender-btn {
+      border: 1px solid #0066b2;
+      border-radius: 6px;
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background-color: #f8f9fa;
+    }
+    .gender-btn:hover {
+      background-color: #e2f0ff;
+      border-color: #007bff;
+    }
+    .gender-selected {
+      background-color: #007bff !important;
+      color: white !important;
+      border-color: #007bff !important;
+    }
+    .form-control, .form-select {
+      border-radius: 6px;
+      
+    }
+    .form-section {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bajaj_Auto_logo.svg/2560px-Bajaj_Auto_logo.svg.png" alt="" />
+    <h4 class="mb-0">Financial Need Analysis</h4>
+  </div>
+
+  <div class="container mt-4 my-4">
+    <div class="form-card">
+      <div class="form-card mt-4">
+      <div class="section-title">1. Basic Details</div>
+      <form id="quoteForm">
+        <div class="row g-4">
+          <div class="col-md-2">
+            <label id="firstName" class="form-label">First Name</label>
+            <input type="text" id="firstName" class="form-control" placeholder="First Name" />
+          </div>
+          <div class="col-md-2">
+            <label id="middleName" class="form-label">Middle Name</label>
+            <input type="text" id="middleName" class="form-control" placeholder="Middle Name" />
+          </div>
+          <div class="col-md-2">
+            <label id="lastName" class="form-label">Last Name</label>
+            <input type="text" id="lastName" class="form-control" placeholder="Last Name" />
+          </div>
+
+          <div class="col-md-4">
+            <label id="gender" class="form-label d-block">Gender</label>
+            <div class="d-flex gap-4">
+              <div id=gender class="gender-btn" data-value="M" style="color: blue;"><i class="fas fa-male"></i> Male</div>
+              <div id=gender class="gender-btn" data-value="F" style="color: blue;"><i class="fas fa-female"></i> Female</div>
+              <div id=gender class="gender-btn" data-value="T" style="color: blue;"><i class="fas fa-transgender-alt"></i> Transgender</div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <label id="dob" class="form-label">Date of Birth</label>
+            <input type="date" id="dob" name="dob" class="form-control" required />
+          </div>
+
+          <div class="col-md-2">
+            <label id="age" class="form-label">Age</label>
+            <input type="number" id="age" name="age" class="form-control" readonly />
+          </div>
+        </div>
+
+        <div class="form-section">
+          <!-- <h6 class="text-primary fw-bold mb-3">Life Assured Details <small class="text-muted ms-2">Same as Above <input type="checkbox"  /></small></h6> -->
+          <div class="row g-3">
+            <div class="col-md-3">
+              <label id="residenceStatus" class="form-label">Residence Status</label>
+              <select class="form-select">
+                <option selected>-- Select --</option>
+                <option data-value="IN">Indian</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label for="pincode" class="form-label">Pincode</label>
+  <input type="text" id="pincode" class="form-control" maxlength="6" required>
+            </div>
+            <div class="col-md-3">
+               <label for="state" class="form-label">Proposer State</label>
+  <input type="text" id="state" class="form-control" readonly>
+            </div>
+            <!-- <div class="col-md-3">
+              <label for="salesPersonState" class="form-label">Sales Person's State</label>
+              <select id="salesPersonState" class="form-select">
+                <option selected>-- Select --</option>
+                <option>UP</option>
+                <option>Delhi</option>
+              </select>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      </form>
+
+   
+
+  <!-- Existing content... -->
+
+<!-- End of your first form-card -->
+
+<!-- Product Details Card (Added below with spacing) -->
+<div class="form-card mt-4">
+  <div class="section-title">2. Product Details</div>
+  <form>
+    <div class="row g-3">
+      <div class="col-md-3">
+        <label id="pt" class="form-label">Policy Term</label>
+        <select id="pt" class="form-select">
+          <option id="pt">Select Term</option>
+            <option id="pt">10</option>
+            <option id="pt">15</option>
+            <option id="pt">20</option>
+            <option id="pt">25</option>
+            <option id="pt">30</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label id="ppt" class="form-label">I will pay premium for</label>
+        <select id="ppt" class="form-select">
+          <option id="ppt">Select Term</option>
+          <option id="ppt">10</option>
+            <option id="ppt">15</option>
+            <option id="ppt">20</option>
+            <option id="ppt">25</option>
+            <option id="ppt">30</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">I will Pay Premium</label>
+        <select id="paymentMode" class="form-select">
+          <option>Select Payment Mode</option>
+          <option>Annually</option>
+        </select>
+      </div>
+      <!-- <div class="col-md-3">
+        <label class="form-label">Existing Customer</label>
+        <select id="existingCustomer" class="form-select">
+          <option>Select</option>
+          <option>No</option>
+        </select>
+      </div> -->
+
+      <!-- <div class="col-md-3">
+        <label class="form-label">Are you a first time buyer of an individual life insurance policy?</label>
+        <select id="firstTimeBuyer" class="form-select">
+          <option>Select</option>
+          <option>Yes</option>
+        </select>
+      </div> -->
+      <!-- <div class="col-md-3">
+        <label id="premiumHolidays" class="form-label">Premium Holidays</label>
+        <select class="form-select">
+          <option>0</option>
+        </select>
+      </div> -->
+      <div class="col-md-3">
+        <label id="relationship" class="form-label">Proposer relationship</label>
+        <select id="relationship" class="form-select" disabled>
+          <option id="relationship" data-value="I" >Self</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label id="planVariant" class="form-label">Plan Variant</label>
+        <select id="planVariant" class="form-select">
+          <option id="planVariant">Life Shield</option>
+        </select>
+      </div>
+
+      <!-- <div class="col-md-3">
+        <label class="form-label">Life Benefit</label>
+        <select class="form-select">
+          <option>-- Select --</option>
+        </select>
+      </div> -->
+      <div class="col-md-3">
+        <label id="medicalNonMedical" class="form-label">Medical / Non Medical</label>
+        <select id="medicalNonMedical" class="form-select">
+          <option id="medicalNonMedical">Medical</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label id="smoker" class="form-label">Do you smoke/ chew tobacco?</label>
+        <select id="smoker" class="form-select">
+          <option id="smoker">-- Select --</option>
+          <option data-value="Y" id="smoker">Yes</option>
+          <option data-value="N" id="smoker">No</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label id="occupation" class="form-label">Present Occupation</label>
+        <select id="occupation" class="form-select">
+          <option id="occupation">-- Select --</option>
+          <option data-value="SG" id="occupation">Salaried (Govt. Employee)</option>
+          <option data-value="P" id="occupation">Professional</option>
+          <option data-value="SN" id="occupation">Salaried (Other than Govt.)</option>
+          <option data-value="B" id="occupation">Business</option>
+          <option data-value="R" id="occupation">Retired</option>
+          <option data-value="A" id="occupation">Agriculture</option>
+          <option data-value="T" id="occupation">Student</option>
+          <option data-value="H" id="occupation">Housewife</option>
+          <option data-value="U" id="occupation">Unemployed</option>
+          <option data-value="D" id="occupation">Defence – Army/Navy/Air force , Defence - CAPF</option>
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <label id="education" class="form-label">Education</label>
+        <select id="education" class="form-select">
+          <option id="education">-- Select --</option>
+          <option data-value="MT" id="education">Matriculation</option>
+          <option data-value="NM" id="education">Non-Matriculation</option>
+          <option data-value="GR" id="education">Graduate and Higher</option>
+          <option data-value="BC" id="education">Bachelor</option>
+          <option data-value="PG" id="education">Masters and above</option>
+          <option data-value="PR" id="education">Primary</option>
+          <option data-value="HSC" id="education">Intermediate(HSC)</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label id="annIncome" class="form-label">Annual Income</label>
+        <input type="text" class="form-control" />
+      </div>
+      <div class="col-md-3">
+        <label id="sumAssured" class="form-label">Sum Assured</label>
+        <div class="input-group">
+          <span id="sumAssured" class="input-group-text">₹</span>
+          <input id="sumAssured" type="text" class="form-control" />
+        </div>
+      </div>
+    </div>
+  </form>
+
+
+ 
+  </div>
+    <div class="text-center mt-4">
+        <button class="btn btn-primary" onclick="document.getElementById('quoteForm').submit()">Submit</button>
+    </div>
+
+<script>
+  // Gender selection
+  const genderBtns = document.querySelectorAll('.gender-btn');
+  genderBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      genderBtns.forEach(b => b.classList.remove('gender-selected'));
+      btn.classList.add('gender-selected');
+      document.getElementById("genderSelect").value = btn.dataset.value;
+    });
+  });
+
+ // DOB → Age
+  document.getElementById("dob").addEventListener("change", function () {
+    const dob = new Date(this.value);
+    const today = new Date();
+    let age = today.getFullYear() - dob.getFullYear();
+    const m = today.getMonth() - dob.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+      age--;
+    }
+    document.getElementById("age").value = age >= 0 ? age : '';
+  });
+
+  // Pincode → State autofill
+  document.getElementById('pincode').addEventListener('blur', function () {
+    const pincode = this.value;
+    if (pincode.length === 6) {
+      fetch(`https://api.postalpincode.in/pincode/${pincode}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data[0].Status === "Success") {
+            document.getElementById('state').value = data[0].PostOffice[0].State;
+          } else {
+            document.getElementById('state').value = "Invalid Pincode";
+          }
+        })
+        .catch(error => {
+          console.error("Error fetching state:", error);
+          document.getElementById('state').value = "Error";
+        });
+    } else {
+      document.getElementById('state').value = "";
+    }
+  });
+
+  // Form Submit + API Call
+  document.getElementById("quoteForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const firstName = document.getElementById("firstName").value.trim();
+    const dob = document.getElementById("dob").value;
+    const age = document.getElementById("age").value;
+    const gender = document.getElementById("genderSelect").value;
+    const sumAssured = document.getElementById("sumAssured").value;
+
+    if (!firstName || !dob || !age || !gender || !sumAssured) {
+      alert("Please fill all required fields.");
+      return;
+    }
+
+    const payload = {
+      "pInObj1_inout": {
+        "pInObj1_inout": {
+        "stringval1": "REDLION_IMFLLP_DG",
+        "stringval2": "PREMIUM_CALC",
+        "stringval3": "10.1.100.100",
+        "stringval4": "1900000142",
+        "stringval5": "P00MDGNB",
+        "stringval7": "",
+        "stringval8": smoker,
+        "stringval9": "Y",
+        "stringval10": "259",
+        "stringval11": "I",
+        "stringval12": "MR",
+        "stringval13": firstName,
+        "stringval14": middleName,
+        "stringval15": lastName,
+        "stringval16": dob,
+        "stringval17": age,
+        "stringval18": gender,
+        "stringval19": "9218087212",
+        "stringval20": "it@mitcsco.com",
+        "stringval21": "",
+        "stringval22": "",
+        "stringval23": "",
+        "stringval24": "",
+        "stringval25": "",
+        "stringval26": "",
+        "stringval27": "",
+        "stringval28": "",
+        "stringval29": "",
+        "stringval30": "Bajaj Allianz iSecure_V02",
+        "stringval31": "ISECUREV02",
+        "stringval32": "1",
+        "stringval34": "ENG",
+        "stringval35": pt,
+        "stringval36": ppt,
+        "stringval37": "",
+        "stringval38": "",
+        "stringval39": "1",
+        "stringval40": sumAssured,
+        "stringval130": annIncome,
+        "stringval129": education,
+        "stringval55": pincode,
+        "stringval131": occupation
+    },
+    "pInObj4_inout": {
+        "stringval147": "REDLION_IMFLLP",
+        "stringval148": "I",
+        "stringval149": "I"
+    },
+    "pInList1_inout": {
+        "WeoRecStrings150User": [
+            {
+                "stringval1": "L145A01",
+                "stringval2": "5000000",
+                "stringval3": "10",
+                "stringval4": "10"
+            }
+        ]
+    }
+}
+
+      }
+
+
+    fetch("https://balicws.bajajallianz.com/BalicWSRest/BalicWSRest", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    })
+    .then(res => res.json())
+    .then(data => {
+      const premium = data?.pInObj1_inout?.stringval120;
+      if (premium) {
+        alert("💰 Premium Amount: ₹" + premium);
+      } else {
+        alert("❌ No premium returned. Please check input values.");
+      }
+    })
+    .catch(err => {
+      console.error("API Error:", err);
+      alert("API call failed. Check console.");
+    });
+  });
+</script>
+
+</body>
+</html>
