@@ -2,74 +2,76 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>Redlion </title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+  <meta charset="utf-8">
+  <title>Redlion</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <!-- Favicon -->
-    <link href="img-fluid me-3" src="C:\Users\HP\Downloads\website 2\insurance-html-template\img\icon\redlion logo.......png" rel="redlion">
+  <!-- Favicon -->
+  <link rel="icon" href="./img/icon/redlion logo.......png" type="image/png">
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@600;700&display=swap" rel="stylesheet"> 
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <!-- Libraries Stylesheet -->
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+  <!-- Template Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 </head>
 
 <body>
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" role="status"></div>
-    </div>
-    <!-- Spinner End -->
+  <!-- Spinner -->
+  <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-grow text-primary" role="status"></div>
+  </div>
 
-    <!-- Topbar Start -->
-    <div class="container-fluid  text-black-50 py-2 px-0 d-none d-lg-block"  style="background-color: #e4a512";>
-        <div class="row gx-0 align-items-center">
-            <div class="col-lg-7 px-5 text-start">
-                <div class="h-100 d-inline-flex align-items-center me-4">
-                    <small class="fa fa-phone-alt me-2"></small>
-                    <small>+91 9870205013</small>
-                </div>
-                <div class="h-100 d-inline-flex align-items-center me-4">
-                    <small class="far fa-envelope-open me-2"></small>
-                    <small>support@mitcsco.com</small>
-                </div> 
-                </button>
-                <div class="h-100 d-inline-flex align-items-center me-4"> <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About Us</a>
-                        <a href="contact.html" class="nav-item nav-link">Contact Us</a>      
-                </div>
-            </div>
-            <div class="col-lg-5 px-5 text-end">
-                <div class="h-100 d-inline-flex align-items-center">
-                    <a class="text-dark black-50 ms-4" href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2FMitcscoFinancialServices%2F"><i class="fab fa-facebook-f"></i></a>
-                    <a class="text-dark black-50 ms-4" href="https://x.com/mitcsco/status/1698927872721764454"><i class="fab fa-twitter"></i></a>
-                    <a class="text-dark black-50 ms-4" href="https://in.linkedin.com/company/mitcscofinancial"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="text-dark black-50 ms-4" href="https://www.instagram.com/mitcscofinancial/"><i class="fab fa-instagram"></i></a>
-                    <a class="text-dark black-50 ms-4" href="www.youtube.com/@MitcscoFinancial"><i class="fab fa-pinterest"></i></a>
-                    <a class="text-dark black-50 ms-4" href="www.youtube.com/@MitcscoFinancial"><i class="fab fa-youtube"></i></a> 
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Topbar End -->
+  <!-- Include Topbar -->
+  <!-- Include your full topbar HTML here -->
 
+  <!-- Include Navbar -->
+  <!-- Include your full navbar HTML here -->
+
+  <!-- Page Header -->
+  <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-5">
+      <h1 class="display-4 animated slideInDown mb-4">Health Insurance</h1>
+      <nav aria-label="breadcrumb animated slideInDown">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Health Insurance</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- OTP Section -->
+  <div class="container py-5">
+    <div class="bg-white p-4 p-md-5 rounded shadow-sm mx-auto" style="max-width: 500px;">
+      <h2 class="text-center mb-4 fw-bold">Enter Details to Know More</h2>
+      <input id="name" type="text" placeholder="Your Name" class="form-control mb-3" />
+      <input id="mobile" type="tel" placeholder="Mobile Number" class="form-control mb-3" />
+      <button onclick="sendOTP()" class="btn btn-primary w-100 mb-3">Get OTP</button>
+
+      <input id="otp" type="text" placeholder="Enter OTP" class="form-control mb-3" style="display: none;" />
+      <button id="submitBtn" onclick="verifyOTP()" class="btn btn-success w-100" style="display: none;">Submit</button>
+    </div>
+  </div>
+
+<<<<<<< HEAD
  <!-- Navbar Start -->
  
  <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-3 px-lg-4">
@@ -160,34 +162,78 @@
     <a href="https://wa.link/c39er4" class="btn btn-primary px-3 d-none d-lg-block">Get in touch</a>
 </nav>
 <!-- Navbar End -->
+=======
+  <!-- Include Footer -->
+  <!-- Include your full footer HTML here -->
 
-    <a  class="whats-app" href="https://wa.link/c39er4" target="_blank">
-        <i class="fab fa-whatsapp"></i>>
-    </a>
+  <!-- Firebase + OTP Script -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBPHXyshzXLOSSBXuanDZ0JuWsqqxIREXk",
+      authDomain: "health-product-c40e8.firebaseapp.com",
+      databaseURL: "https://health-product-c40e8-default-rtdb.firebaseio.com/",
+      projectId: "health-product-c40e8",
+      storageBucket: "health-product-c40e8.appspot.com",
+      messagingSenderId: "944129363390",
+      appId: "1:944129363390:web:9ba558e185026bf281fdef"
+    };
+>>>>>>> 8b6492be469d44222eabd5f31fd8a82bab14b29b
 
-    <!-- Page Header Start -->
-    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <h1 class="display-4 animated slideInDown mb-4">Health Insurance</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
-                <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="./service.html">Services</a></li> 
-                    <li class="breadcrumb-item active" aria-current="page">Life Insurance</li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-    <!-- Page Header End -->
-      
-      
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+    let generatedOTP = "";
 
+    function sendOTP() {
+      const name = document.getElementById("name").value.trim();
+      const mobile = document.getElementById("mobile").value.trim();
+      if (!name || !mobile) {
+        alert("Please enter your name and mobile number.");
+        return;
+      }
 
+      generatedOTP = Math.floor(1000 + Math.random() * 9000).toString();
+      console.log("Generated OTP:", generatedOTP);
 
+      document.getElementById("otp").style.display = "block";
+      document.getElementById("submitBtn").style.display = "block";
 
+      db.ref("videoOTPUsers").push({
+        name: name,
+        mobile: mobile,
+        timestamp: new Date().toISOString()
+      });
 
+      fetch(`https://2factor.in/API/V1/21335cd0-50d1-11f0-a562-0200cd936042/SMS/${mobile}/${generatedOTP}`, {
+        method: "GET"
+      })
+        .then(res => res.text())
+        .then(data => console.log("✅ OTP sent:", data))
+        .catch(err => console.error("❌ SMS Error:", err));
+    }
 
+    function verifyOTP() {
+      const userOTP = document.getElementById("otp").value.trim();
+      if (userOTP === generatedOTP) {
+        console.log("✅ OTP verified, redirecting...");
+        window.location.href = "video.html";
+      } else {
+        alert("Incorrect OTP. Please try again.");
+      }
+    }
+  </script>
 
+  <!-- JS Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/counterup/counterup.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+<<<<<<< HEAD
     
       
       <!-- Footer Start -->
@@ -263,3 +309,6 @@
     </body>
     
     </html>
+=======
+</html>
+>>>>>>> 8b6492be469d44222eabd5f31fd8a82bab14b29b
